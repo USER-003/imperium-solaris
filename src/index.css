@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* opcional: suavizar fuentes y ocupar alto completo */
+html, body, #root { height: 100%; }
