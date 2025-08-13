@@ -17,7 +17,8 @@ import {
 } from "lucide-react";
 // Usar el mapa avanzado desde su archivo dedicado
 import SolarisMapPro from "./SolarisMapPro.jsx";
-import heroImage from "./assets/main.png";
+import heroVideo from "./assets/animate_main.mp4";
+import heroPoster from "./assets/main.png";
 
 /**
  * Imperium Solaris — Landing Oficial (Single-file React component)
@@ -147,15 +148,18 @@ const Section = ({ id, title, icon: Icon, children, subtitle }) => (
 function HeroImageBackdrop() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">
-      <img
-        src={heroImage}
-        alt=""
-        className="w-full h-full object-cover object-[center_35%]"
-        fetchPriority="high"
-        decoding="async"
-        loading="eager"
-        sizes="100vw"
-      />
+      <video
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-[115%] object-cover object-[center_35%] pointer-events-none"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={heroPoster}
+        aria-hidden="true"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
       {/* oscurecimiento suave para legibilidad */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-transparent pointer-events-none" />
       {/* blur opcional */}
