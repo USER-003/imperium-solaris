@@ -29,7 +29,7 @@ const PROVINCES = [
   },
   {
     id: "helios",
-    name: "Helios",
+    name: "Shurima",
     capital: "Sunreach",
     role: "Agro y energía limpia.",
     weight: 27,
@@ -47,7 +47,7 @@ const PROVINCES = [
   },
   {
     id: "nova",
-    name: "Nova",
+    name: "Noxus",
     capital: "Starhaven",
     role: "Tecnología e industrias creativas.",
     weight: 22,
@@ -65,7 +65,7 @@ const PROVINCES = [
   },
   {
     id: "meridian",
-    name: "Meridian",
+    name: "Targon",
     capital: "Highnoon",
     role: "Comercio y logística.",
     weight: 23,
@@ -83,7 +83,7 @@ const PROVINCES = [
   },
   {
     id: "umbra",
-    name: "Umbra",
+    name: "Jonia",
     capital: "Nightgate",
     role: "Defensa y frontera montañosa.",
     weight: 10,

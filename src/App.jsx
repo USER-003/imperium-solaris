@@ -42,7 +42,7 @@ const SUPREME_LAW = {
 const STATS = [
   { label: "Población", value: "10,000,000" },
   { label: "Régimen", value: "Monarquía Absoluta" },
-  { label: "Capital", value: "Solaria Prime" },
+  { label: "Capital", value: "Solaria" },
   { label: "División", value: "5 Provincias Solares" },
 ];
 
@@ -249,7 +249,7 @@ export default function ImperiumSolarisLanding() {
                 <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {STATS.map((s) => (
                     <Card key={s.label} className="p-4">
-                      <p className="text-xs uppercase tracking-wide text-zinc-500">
+                      <p className="text-xs uppercase tracking-wide text-zinc-400">
                         {s.label}
                       </p>
                       <p className="text-lg font-semibold">{s.value}</p>
