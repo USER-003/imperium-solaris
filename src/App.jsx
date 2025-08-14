@@ -456,9 +456,22 @@ export default function ImperiumSolarisLanding() {
             <Crown className="w-4 h-4 text-amber-600" />
             <span className="text-sm">Imperium Solaris — Autoridad Real</span>
           </div>
-          <div className="text-xs text-zinc-500">
-            © Imperium Solaris. Toda disposición queda sujeta a Decreto Real
-            vigente.
+          <div className="text-xs text-zinc-500 text-center sm:text-right">
+            <div>
+              © Imperium Solaris. Toda disposición queda sujeta a Decreto Real
+              vigente.
+            </div>
+            <div className="mt-2">
+              <span className="font-medium text-zinc-600 dark:text-zinc-300">
+                Integrantes:
+              </span>
+              <ul className="mt-1 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
+                <li>JEFFERSON JOSUE ESPERANZA ORTIZ — SMSS132422</li>
+                <li>GERSON NAHUN ARGUETA HERNANDEZ — SMSS021722</li>
+                <li>SOFÍA MARGARITA ROMERO RODRÍGUEZ — SMSS042622</li>
+                <li>SALVADOR ANTONIO JOVEL GIRON — SMSS049724</li>
+              </ul>
+            </div>
           </div>
         </div>
       </footer>
