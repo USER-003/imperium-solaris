@@ -117,6 +117,30 @@ const PROCESS_REG_COMPANY = [
   "Otorgamiento del Sello Real para operar legalmente",
 ];
 
+// debajo de tus constantes:
+const SUCCESSION = {
+  title: "Sucesión Dinástica",
+  subtitle:
+    "La Corona se transmite conforme a Decreto de Proclamación del Monarca; en su defecto, rige la primogenitura.",
+  modes: [
+    {
+      name: "Designación Real",
+      detail:
+        "El Monarca puede nombrar a su Sucesor mediante Decreto Real. La designación surte efecto con el Sello Real y publicación en la Gaceta.",
+    },
+    {
+      name: "Regla supletoria",
+      detail:
+        "Si no hay designación válida, hereda el primogénito del Monarca (primogenitura sin distinción de sexo).",
+    },
+    {
+      name: "Estabilidad del Trono",
+      detail:
+        "Toda disputa sucesoria se resuelve por Decreto Real del Regente y Consejo de Estrategia, sin poder de veto.",
+    },
+  ],
+};
+
 // (El mapa avanzado define internamente sus provincias)
 
 // ------ UI helpers ------
@@ -384,6 +408,27 @@ export default function ImperiumSolarisLanding() {
                 </p>
               </Card>
             </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        id="sucesion"
+        title={SUCCESSION.title}
+        icon={Crown}
+        subtitle={SUCCESSION.subtitle}
+      >
+        <div className="grid md:grid-cols-3 gap-6">
+          {SUCCESSION.modes.map((m) => (
+            <Card key={m.name} className="p-6">
+              <div className="flex items-center gap-3 mb-2">
+                <Crown className="w-5 h-5" />
+                <h3 className="font-semibold">{m.name}</h3>
+              </div>
+              <p className="text-sm text-zinc-700 dark:text-zinc-300">
+                {m.detail}
+              </p>
+            </Card>
           ))}
         </div>
       </Section>
