@@ -5,7 +5,12 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { motion, useMotionValue } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useMotionTemplate,
+} from "framer-motion";
 import { Map as MapIcon, Crown } from "lucide-react";
 
 /** ---- Ajustes globales ---- */
@@ -447,6 +452,21 @@ export default function SolarisMapPro({ selected, onSelect }) {
     [world]
   );
 
+  // ✅ springs dentro del componente
+  const wx = useSpring(0, { stiffness: 140, damping: 22, mass: 0.7 });
+  const wy = useSpring(0, { stiffness: 140, damping: 22, mass: 0.7 });
+  const ws = useSpring(1, { stiffness: 140, damping: 22, mass: 0.7 });
+
+  // ✅ empujar springs cuando cambia world
+  useEffect(() => {
+    wx.set(world.x);
+    wy.set(world.y);
+    ws.set(world.scale);
+  }, [world.x, world.y, world.scale, wx, wy, ws]);
+
+  // ✅ string reactivo para el atributo transform (SVG units, origen 0,0)
+  const worldTransform = useMotionTemplate`translate(${wx} ${wy}) scale(${ws})`;
+
   return (
     <div className="w-full grid md:grid-cols-2 gap-6 items-start">
       {/* Lienzo */}
@@ -549,15 +569,7 @@ export default function SolarisMapPro({ selected, onSelect }) {
             />
 
             {/* Mundo con pan+zoom */}
-            <motion.g
-              animate={world}
-              transition={{
-                type: "spring",
-                stiffness: 140,
-                damping: 22,
-                mass: 0.7,
-              }}
-            >
+            <motion.g transform={worldTransform}>
               {provinces.map((island) => {
                 const active = selected === island.id;
                 const isHover = hovered === island.id;
